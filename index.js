@@ -29,11 +29,15 @@ function Logger(moduleName) {
 			return function () {
 				const concatenated = []
 				for (let a = 0; a < arguments.length; a++) {
-					if (typeof (arguments[a]) === 'string') {
-						concatenated.push((arguments[a]))
-					}
-					if (typeof (arguments[a]) === 'object') {
-						concatenated.push((JSON.stringify(arguments[a])))
+					switch (typeof (arguments[a])) {
+						case 'string':
+							concatenated.push((arguments[a]))
+							break
+						case 'object':
+							concatenated.push((JSON.stringify(arguments[a])))
+							break
+						default:
+							concatenated.push(String(arguments[a]))
 					}
 				}
 				console.log('', ' '.repeat(thisspaces * 2), clb('|'), color(concatenated.join(' ')))
@@ -98,7 +102,8 @@ function Logger(moduleName) {
 			success: coloredLogger(chalk.hex('#00cc21')),
 			finished,
 			end: finished,
-			printArguments
+			printArguments,
+			showArguments: printArguments
 		}
 	}
 }

@@ -1,4 +1,4 @@
-# printer [![Build Status](https://travis-ci.org/guerrerocarlos/logger-hierarchy.svg?branch=master)](https://travis-ci.org/guerrerocarlos/logger-hierarchy)
+# logger-hierarchy [![Build Status](https://travis-ci.org/guerrerocarlos/logger-hierarchy.svg?branch=master)](https://travis-ci.org/guerrerocarlos/logger-hierarchy)
 > Automatic Logging Module
 
 ## Install
@@ -7,7 +7,7 @@
 $ npm install logger-hierarchy
 ```
 
-## Usage
+## Example Usage
 
 ```js
 const logger = require('logger-hierarchy')('moduleName');
@@ -27,6 +27,16 @@ function exampleFunction() {
 exampleFunction()
 ```
 
+### Example Output:
+
+![Example Output](images/screenshot.png)
+
+## Examples:
+
+Async functions can be logged like this: _/examples/async-example.js_:
+
+![Async Example Output](images/async-screenshot.png)
+
 ## API
 
 ### logger(arguments)
@@ -35,7 +45,7 @@ exampleFunction()
 
 Arguments object of the function (JS reserved word), pass it to the logger for function name and parametters logging on the screen
 
-
+(TODO: Complete API information)
 
 ## License
 

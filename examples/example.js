@@ -1,5 +1,5 @@
 'strict'
-const logger = require('./')('moduleName')
+const logger = require('../')('moduleName')
 
 function thirdFunction(numberProvided) {
 	const log = logger(arguments)
