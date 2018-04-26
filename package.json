@@ -1,0 +1,33 @@
+{
+	"name": "logger-hierarchy",
+	"version": "0.1.0",
+	"description": "Hierarchy based Logging Module",
+	"license": "MIT",
+	"repository": "guerrerocarlos/logger-hierarchy",
+	"author": {
+		"name": "Carlos Guerrero",
+		"email": "guerrerocarlos@gmail.com",
+		"url": "https://carlosguerrero.com"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo"
+	},
+	"xo": {
+		"semicolon": false
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		""
+	],
+	"dependencies": {
+		"chalk": "^2.4.0"
+	},
+	"devDependencies": {
+		"xo": "^0.18.2"
+	}
+}
