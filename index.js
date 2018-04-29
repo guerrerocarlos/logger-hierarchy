@@ -9,12 +9,12 @@ const sha1 = function (data) {
 let spaces = 0
 function Logger(moduleName) {
 	return function (arg, anonName) {
-		let fName = 'Anonymous'
+		let fName = 'anonymous'
 
 		try {
-			fName = arg.callee.toString().match(/function ([^(]+)/)[1]
+			fName = arg.callee.toString().match(/function ([^(]+)/) ? arg.callee.toString().match(/function ([^(]+)/)[0] : 'Anonymous'
+			fName = fName.replace('function ', '')
 		} catch (err) {
-			console.log(err)
 			if (anonName !== undefined) {
 				fName = anonName
 			}
@@ -89,6 +89,9 @@ function Logger(moduleName) {
 			spaces -= 1
 			console.log('', ' '.repeat(thisspaces * 2), cl('/'))
 			return ('', ' '.repeat(thisspaces * 2), cl('/'))
+			if (thisspaces < 0) {
+				thisspaces = 0
+			}
 		}
 
 		return {
@@ -100,6 +103,7 @@ function Logger(moduleName) {
 			warning: coloredLogger(chalk.hex('#ffe500')),
 			warn: coloredLogger(chalk.hex('#ffe500')),
 			success: coloredLogger(chalk.hex('#00cc21')),
+			green: coloredLogger(chalk.hex('#00cc21')),
 			finished,
 			end: finished,
 			printArguments,
