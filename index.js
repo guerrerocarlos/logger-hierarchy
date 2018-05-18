@@ -12,7 +12,7 @@ function Logger(moduleName) {
 		let fName = 'anonymous'
 		let show = false
 
-		if (process.env.DEBUG != undefined) {
+		if (process.env.DEBUG !== undefined) {
 			process.env.DEBUG.split(',').forEach(eachEnvToShow => {
 				if (moduleName.indexOf(eachEnvToShow) > -1) {
 					show = true
