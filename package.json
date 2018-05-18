@@ -1,6 +1,6 @@
 {
 	"name": "logger-hierarchy",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Hierarchy based Logging Module",
 	"license": "MIT",
 	"repository": "guerrerocarlos/logger-hierarchy",
