@@ -12,7 +12,7 @@ function Logger(moduleName) {
 		let fName = 'anonymous'
 		let show = false
 
-		if (process.env.DEBUG !== undefined) {
+		if (process.env.DEBUG) {
 			process.env.DEBUG.split(',').forEach(eachEnvToShow => {
 				if (moduleName.indexOf(eachEnvToShow) > -1) {
 					show = true
@@ -30,13 +30,11 @@ function Logger(moduleName) {
 				fName = anonName
 			}
 		}
-		// console.log('moduleName', moduleName, 'process.env.DEBUG', process.env.DEBUG)
-
 
 		const cl = chalk.hex('#' + sha1(moduleName + fName).slice(0, 7))
 		const clb = chalk.bold.hex('#' + sha1(moduleName + fName).slice(0, 7))
 		const clu = chalk.bold.underline.hex('#' + sha1(moduleName + fName).slice(0, 7))
-		let thisspaces = spaces < 0 ? 0 : spaces
+		const thisspaces = spaces < 0 ? 0 : spaces
 
 		if (show) {
 			spaces++
@@ -60,8 +58,6 @@ function Logger(moduleName) {
 					}
 					console.log('', ' '.repeat(thisspaces * 2), clb('|'), color(concatenated.join(' ')))
 					return ('', ' '.repeat(thisspaces * 2), clb('|'), color(concatenated.join(' ')))
-				} else {
-					return []
 				}
 			}
 		}
@@ -110,8 +106,6 @@ function Logger(moduleName) {
 				}
 				console.log('', ' '.repeat(thisspaces * 2) + cl(' \\\n') + ' '.repeat(spaces * 2) + clb('+'), clu(moduleName) + '.' + cl(fName), cl.apply(this, ['(', concatenated.join(', '), ')']))
 				return ['', ' '.repeat(thisspaces * 2) + cl(' \\\n') + ' '.repeat(spaces * 2) + clb('+'), clu(moduleName) + '.' + cl(fName), cl.apply(this, ['(', concatenated.join(', '), ')'])].join(' ')
-			} else {
-				return []
 			}
 		}
 
